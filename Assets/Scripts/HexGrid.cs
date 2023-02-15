@@ -65,7 +65,6 @@ public class HexGrid : MonoBehaviour
 
     private void CreateCell(int x, int z, int i)
     {
-        Debug.Log("i :" + i + "  "+cells.Length);
         Vector3 position;
         position.x = (x + 0.5f * z - z / 2) * (HexMetrics.innerRadius * 2f);  // z/2整除 没有分数部分
         position.y = 0f;
@@ -148,10 +147,6 @@ public class HexGrid : MonoBehaviour
         position = transform.InverseTransformPoint(position);
         HexCoordinates coordinates = HexCoordinates.FromPosition(position);
         int index = coordinates.X + coordinates.Z * cellCountX + coordinates.Z / 2;
-        foreach (var cell in cells)
-        {
-            Debug.Log(cell);
-        }
         return cells[index];
     }
 
